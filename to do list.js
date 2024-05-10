@@ -40,22 +40,31 @@ function addTask(inputText) {
     sessionStorage.setItem("taskList", JSON.stringify(existingList));
 }
 
-// Load data from local storage on page load (optional)
+
+// Load the data from local storage on loading the page
 window.onload = function () {
     const storedList = JSON.parse(sessionStorage.getItem("taskList") || "[]");
-    storedList.forEach(element => {
+    storedList.forEach(function (listItem) { 
         const listContainer = document.querySelector(".list-container");
         listContainer.style.display = "block";
 
         const newListElement = document.createElement("li");
-        newListElement.textContent = storedList;
+        newListElement.textContent = listItem; 
 
         const closeButton = document.createElement("span");
         closeButton.classList.add("close-btn");
         closeButton.textContent = "\u00D7";
 
-        closeButton.addEventListener("click", () => {
+        closeButton.addEventListener("click", function () {
             closeButton.parentElement.remove();
+            const existingList = JSON.parse(sessionStorage.getItem("taskList") || "[]");
+            const taskIndex = existingList.indexOf(listItem);
+
+            if (taskIndex !== -1) {
+                existingList.splice(taskIndex, 1);
+                sessionStorage.setItem("taskList", JSON.stringify(existingList));
+            }
+
             if (!listContainer.querySelectorAll("li").length) {
                 listContainer.style.display = "none";
             }
@@ -68,6 +77,7 @@ window.onload = function () {
     });
 };
 
+
 // Add event listener to toggle "strikethrough" class on list item click
 document.querySelector(".list").addEventListener("click", function (event) {
     if (event.target.tagName === "LI") {
@@ -75,11 +85,13 @@ document.querySelector(".list").addEventListener("click", function (event) {
     }
 });
 
+
 // Add event listener to the "Add" button or input box to capture input
 document.querySelector("#add-button").addEventListener("click", function () {
     const inputBox = document.querySelector("#input-box").value;
     addTask(inputBox);
 });
+
 
 document.querySelector("#input-box").addEventListener("keypress", function (event) {
     if (event.key === "Enter") {
