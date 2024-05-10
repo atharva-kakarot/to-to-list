@@ -1,0 +1,93 @@
+body {
+    background-color: rgb(255, 153, 37);
+}
+
+h1 {
+    padding-top: 30px;
+    font-family: "Rubik Doodle Shadow";
+    color: rgb(85, 85, 85);
+    font-size: 45px;
+}
+
+.list li {
+    cursor: pointer;
+    font-size: 20px;
+    margin-right: 40px;
+    list-style-type: none;
+    text-align: left;
+    border-radius: 10px;
+    padding: 10px;
+    margin-top: 3px;
+    font-size: 20px;
+    width: 365px;
+    margin-left: -22px;
+    word-wrap: break-word;
+    font-family: "Kalam";
+    color: rgb(84, 84, 84);
+
+}
+
+.list li:hover {
+    background-color: gray;
+    transition: 0.5s;
+}
+
+.container {
+    padding-bottom: 10px;
+    width: 600px;
+    height: fit-content;
+    margin-top: 100px;
+    border-radius: 20px;
+    background-color: rgb(255, 241, 226);
+    box-shadow: 10px 10px 5px rgb(224, 119, 0);
+}
+
+#input-box {
+    width: 364px;
+    padding: 10px;
+    background-color: rgb(172, 172, 172);
+    border-radius: 10px;
+    border: none;
+    margin-bottom: 20px;
+    font-size: 20px;
+    font-family: "Kalam";
+    color: rgb(84, 84, 84);
+}
+
+#input-box:focus {
+    outline: none;
+}
+
+#add-button {
+    border-radius: 10px;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    padding: 10px;
+    background-color: rgb(172, 172, 172);
+    font-family: "Kalam";
+    color: rgb(84, 84, 84);
+}
+
+.list-container {
+    width: 423px;
+    height: fit-content;
+    border-radius: 10px;
+    padding-top: 1px;
+    padding-bottom: 1px;
+    margin-bottom: 20px;
+    background-color: rgb(172, 172, 172);
+    display: none;
+}
+
+.close-btn {
+    float: right;
+    margin-top: -1px;
+}
+
+.strikethrough {
+    text-decoration: line-through;
+    cursor: pointer;
+    background-color: gray;
+    transition: 1s;
+}
